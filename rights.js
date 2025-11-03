@@ -30,13 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
   observer.observe(introText);
 });
 
-
-
-
-
-
-
-
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -51,3 +44,46 @@ const observer = new IntersectionObserver(
 document.querySelectorAll(".content-block").forEach((block) => {
   observer.observe(block);
 });
+
+
+
+
+
+// عناصر
+const buttons = document.querySelectorAll(".buttons-row .btn");
+const status = document.getElementById("download-status");
+
+// مساعدة لعرض رسالة حالة قصيرة
+function showStatus(text, type = "info", ms = 2500) {
+  status.textContent = text;
+  status.style.color = (type === "error") ? "#d9534f" : (type === "success") ? "#17a2b8" : "#667085";
+  // إخفاء بعد المدة
+  if (ms > 0) {
+    clearTimeout(showStatus._t);
+    showStatus._t = setTimeout(() => status.textContent = "", ms);
+  }
+}
+
+// تابع التعامل مع النقر — يستخدم سلوك الرابط download إن كان المتصفح يدعمه
+buttons.forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    // إذا أردت أن تعمل عبر JS بدل السلوك الافتراضي، أزل السطر التالي
+    // e.preventDefault();
+
+    // جلب مسار الملف من href أو من data-file
+    const href = btn.getAttribute("href") || btn.dataset.file;
+    const filename = btn.dataset.file || href.split("/").pop();
+
+    // تجربة بسيطة: نتحقق إن الملف موجود (هذا اختبار بسيط على مستوى الواجهة — لا يتحقق فعليًا من الملف على السيرفر)
+    if (!href) {
+      e.preventDefault();
+      showStatus("رابط الملف غير مُحدَّد.", "error", 3000);
+      return;
+    }
+
+    // عرض حالة سريعة قبل التحميل
+    showStatus(`جاري التحميل: ${filename} ...`, "info", 2000);
+
+  });
+});
+

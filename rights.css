@@ -254,27 +254,6 @@ html {
   transform: translateX(100px);
 }
 
-.links {
-      text-align: center;
-      font-size: 20px;
-      font-weight: 600;
-      color: #222;
-      word-spacing: 1px;
-      margin: 0;
-}
-.links p {
-   font-family: 'Playfair Display', serif;
-  font-style: italic;
-  margin: 0;
-  color: rgb(0, 0, 193);
-  text-decoration: underline;
-  margin-bottom: 10px;
-  transition: 0.5s ease all;
-}
-
-.links p:hover {
- color: rgb(1, 0, 46);
-}
 
 
 .section-separator {
@@ -342,6 +321,103 @@ html {
   flex-direction: column;
   align-items: center;
 }
+
+
+/* القسم الخارجي */
+.pdf-download-section{
+  max-width: 1400px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.98));
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow: 0 10px 30px rgba(12, 35, 63, 0.06);
+}
+
+/* العنوان */
+.section-title{
+  margin:0 0 20px 0;
+  font-size:28px;
+  color: black;
+  text-align:center;
+  font-weight:700;
+}
+
+/* صف الأزرار */
+.buttons-row{
+  display:flex;
+  gap: 60px;              /* المسافة بين الأزرار */
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  padding:10px 8px 4px;
+}
+
+/* قاعدة للأزرار */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  padding:14px 17px;
+  border-radius:12px;
+  font-size:17px;
+  font-weight:700;
+  color:white;
+  transition: transform .12s ease, box-shadow .12s ease;
+  box-shadow: 0 6px 18px rgba(12,35,63,0.08);
+  min-width:160px;
+  justify-content:center;
+}
+
+/* أيقونة داخل الزر */
+.icon{
+  width:20px;
+  height:20px;
+  opacity:.98;
+  transform: translateY(-1px);
+}
+
+/* الأنماط المختلفة للأزرار */
+.btn-primary{ background: linear-gradient(90deg, #2ea58b, #128568); }
+.btn-secondary{ background: linear-gradient(90deg, #2ea58b, #128568); }
+.btn-tertiary{ background: linear-gradient(90deg, #2ea58b, #128568); }
+
+/* تأثير hover / active */
+.btn:hover{ transform: translateY(-4px); box-shadow: 0 12px 30px rgba(12,35,63,0.12); }
+.btn:active{ transform: translateY(-1px); box-shadow: 0 8px 22px rgba(12,35,63,0.10); }
+
+/* حالة التحميل / الحالة العامة */
+.status{
+  margin-top:18px;
+  text-align:center;
+  font-weight:600;
+  color:#667085;
+}
+
+.links {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 600;
+      color: #222;
+      word-spacing: 1px;
+      margin: 0;
+      width: fit-content;
+      margin: 20px auto 0px;
+}
+.links p {
+   font-family: 'Playfair Display', serif;
+  font-style: italic;
+  margin: 0;
+  color: rgb(0, 0, 193);
+  text-decoration: underline;
+  margin-bottom: 10px;
+  transition: 0.5s ease all;
+}
+
+.links p:hover {
+ color: rgb(1, 0, 46);
+}
+
 
 
 footer {
@@ -599,6 +675,60 @@ header {
       font-size: 15px;
       font-weight: 600;
     }
+
+    .pdf-download-section{
+  max-width: 1400px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.98));
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow: 0 10px 30px rgba(12, 35, 63, 0.06);
+}
+
+/* العنوان */
+.section-title{
+  margin:0 0 20px 0;
+  font-size:28px;
+  color: black;
+  text-align:center;
+  font-weight:700;
+}
+
+/* صف الأزرار */
+.buttons-row{
+  display:flex;
+  gap: 30px;              /* المسافة بين الأزرار */
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  padding:10px 8px 4px;
+}
+
+/* قاعدة للأزرار */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  padding:13px 16px;
+  border-radius:12px;
+  font-size:16px;
+  font-weight:700;
+  color:white;
+  transition: transform .12s ease, box-shadow .12s ease;
+  box-shadow: 0 6px 18px rgba(12,35,63,0.08);
+  min-width:160px;
+  justify-content:center;
+}
+
+/* أيقونة داخل الزر */
+.icon{
+  width:18px;
+  height:18px;
+  opacity:.98;
+  transform: translateY(-1px);
+}
+
     }
 
 
@@ -962,6 +1092,100 @@ header {
       font-size: 9px;
       font-weight: 600;
     }
+
+    .pdf-download-section{
+  max-width: 1350px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.98));
+  border-radius:var(--radius);
+  padding:15px;
+  box-shadow: 0 10px 30px rgba(12, 35, 63, 0.06);
+}
+
+/* العنوان */
+.section-title{
+  margin:0 0 10px 0;
+  font-size:18px;
+  color: black;
+  text-align:center;
+  font-weight:700;
+}
+
+/* صف الأزرار */
+.buttons-row{
+  display:flex;
+  gap: 30px;              /* المسافة بين الأزرار */
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  padding:10px 8px 4px;
+}
+
+/* قاعدة للأزرار */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  padding:12px 13px;
+  border-radius:12px;
+  font-size:13px;
+  font-weight:600;
+  color:white;
+  transition: transform .12s ease, box-shadow .12s ease;
+  box-shadow: 0 6px 18px rgba(12,35,63,0.08);
+  min-width:160px;
+  justify-content:center;
+}
+
+/* أيقونة داخل الزر */
+.icon{
+  width:18px;
+  height:18px;
+  opacity:.98;
+  transform: translateY(-1px);
+}
+
+/* الأنماط المختلفة للأزرار */
+.btn-primary{ background: linear-gradient(90deg, #2ea58b, #128568); }
+.btn-secondary{ background: linear-gradient(90deg, #2ea58b, #128568); }
+.btn-tertiary{ background: linear-gradient(90deg, #2ea58b, #128568); }
+
+/* تأثير hover / active */
+.btn:hover{ transform: translateY(-4px); box-shadow: 0 12px 30px rgba(12,35,63,0.12); }
+.btn:active{ transform: translateY(-1px); box-shadow: 0 8px 22px rgba(12,35,63,0.10); }
+
+/* حالة التحميل / الحالة العامة */
+.status{
+  margin-top:18px;
+  text-align:center;
+  font-weight:600;
+  color:#667085;
+}
+
+.links {
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: #222;
+      word-spacing: 1px;
+      margin: 0;
+      width: fit-content;
+      margin: 20px auto 0px;
+}
+.links p {
+   font-family: 'Playfair Display', serif;
+  font-style: italic;
+  margin: 0;
+  color: rgb(0, 0, 193);
+  text-decoration: underline;
+  margin-bottom: 10px;
+  transition: 0.5s ease all;
+}
+
+.links p:hover {
+ color: rgb(1, 0, 46);
+}
 }
 
 
