@@ -590,6 +590,38 @@ ul.social-list {
   bottom: 50px;
 }
 
+.site-owner {
+  margin-top: 20px;
+  margin-bottom: -30px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.owner-box {
+  background: #f4f6fa;
+  padding: 15px 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  max-width: 350px;
+  width: 100%;
+}
+
+.owner-title {
+  font-size: 23px;
+  font-weight: 800;
+  color: #2a4a6f;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.owner-text {
+  font-size: 18px;
+  color: #4a4a4a;
+  word-spacing: 3px;
+}
+
 
  footer {
     padding: 3px;
@@ -1126,6 +1158,40 @@ footer {
   font-size: 12px;
   animation: fadeIn 0.7s ease-in-out;
 }
+
+.site-owner {
+  margin-top: 20px;
+  margin-bottom: -30px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.owner-box {
+  background: #f4f6fa;
+  padding: 15px 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  max-width: 350px;
+  width: 100%;
+}
+
+.owner-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #2a4a6f;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.owner-text {
+  font-size: 14px;
+  color: #4a4a4a;
+  word-spacing: 3px;
+  margin-top: 5px;
+}
+
 
 }
 

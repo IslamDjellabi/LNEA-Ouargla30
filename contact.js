@@ -14,12 +14,7 @@ function hideSidebar() {
   }, 800); // match the transition duration
 }
 
-
-
-
-
-
-  function copySpecific(element) {
+function copySpecific(element) {
     let text = element.getAttribute("data-copy");
     navigator.clipboard.writeText(text).then(() => {
       alert("✅ تم نسخ: " + text);
@@ -82,27 +77,58 @@ form.addEventListener("submit", function(e) {
 const supportSection = document.querySelector(".support-section");
 const formInputs = document.querySelectorAll("#support-form input, #support-form textarea");
 
-// عندما يضغط المستخدم على حقل الكتابة
-formInputs.forEach(input => {
-  input.addEventListener("focus", () => {
-    // نرفع القسم للأعلى لتفادي تغطيته بلوحة المفاتيح
-    supportSection.style.transition = "transform 0.3s ease";
-    supportSection.style.transform = "translateY(-150px)";
-  });
+let listenersAdded = false;
 
-  input.addEventListener("blur", () => {
-    // عندما يغادر المستخدم الحقل، نعيد الوضع الطبيعي
-    supportSection.style.transform = "translateY(0)";
+function addKeyboardShiftListeners() {
+  if (listenersAdded) return;
+  formInputs.forEach(input => {
+    input.addEventListener("focus", onInputFocus);
+    input.addEventListener("blur", onInputBlur);
   });
+  listenersAdded = true;
+}
+
+function removeKeyboardShiftListeners() {
+  if (!listenersAdded) return;
+  formInputs.forEach(input => {
+    input.removeEventListener("focus", onInputFocus);
+    input.removeEventListener("blur", onInputBlur);
+  });
+  listenersAdded = false;
+}
+
+function onInputFocus() {
+  if (!supportSection) return;
+  supportSection.style.transition = "transform 0.3s ease";
+  supportSection.style.transform = "translateY(-150px)";
+}
+
+function onInputBlur() {
+  if (!supportSection) return;
+  supportSection.style.transform = "translateY(0)";
+}
+
+// only enable the keyboard-shift behavior on tablet & mobile
+function updateKeyboardBehavior() {
+  const isMobileOrTablet = window.matchMedia("(max-width: 1024px)").matches;
+  if (isMobileOrTablet) addKeyboardShiftListeners();
+  else removeKeyboardShiftListeners();
+}
+
+// init on load
+document.addEventListener("DOMContentLoaded", () => {
+  updateKeyboardBehavior();
 });
 
+// update on resize/orientation change
+window.addEventListener("resize", updateKeyboardBehavior);
+window.addEventListener("orientationchange", updateKeyboardBehavior);
 
-
-
+// keep previous resize logic for layout
 window.addEventListener("resize", () => {
-  if (window.innerHeight < 500) {
+  if (window.innerHeight < 500 && supportSection) {
     supportSection.style.justifyContent = "flex-start";
-  } else {
+  } else if (supportSection) {
     supportSection.style.justifyContent = "center";
   }
 });
